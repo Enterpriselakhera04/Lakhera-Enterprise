@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Database, CheckCircle2, AlertCircle, Copy, Check, ExternalLink, X, RefreshCw } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { supabase, SUPABASE_URL } from '../lib/supabase';
 
 interface SupabaseSyncModalProps {
   isOpen: boolean;
@@ -77,12 +78,37 @@ CREATE POLICY "Allow anon insert leads" ON public.leads FOR ALL TO anon USING (t
     setLoading(true);
     try {
       const res = await fetch('/api/supabase/status');
-      const data = await res.json();
-      setStatus(data);
-    } catch (e) {
+      if (res.ok) {
+        const data = await res.json();
+        setStatus(data);
+        return;
+      }
+    } catch {
+      // Fall through to client check
+    }
+
+    // Direct client check for Netlify static deployments
+    try {
+      const [consultationsCheck, quotesCheck] = await Promise.all([
+        supabase.from('consultations').select('id').limit(1),
+        supabase.from('quotes').select('id').limit(1),
+      ]);
+
+      const hasConsultations = !consultationsCheck.error;
+      const hasQuotes = !quotesCheck.error;
+
       setStatus({
         connected: true,
-        projectUrl: 'https://dfaoaxehhszlbgvqaiyy.supabase.co',
+        projectUrl: SUPABASE_URL,
+        tables: { consultations: hasConsultations, quotes: hasQuotes },
+        message: hasConsultations && hasQuotes
+          ? 'Supabase database tables are active and connected.'
+          : 'Supabase connected. Database tables can be created using the SQL below.',
+      });
+    } catch {
+      setStatus({
+        connected: true,
+        projectUrl: SUPABASE_URL,
         tables: { consultations: false, quotes: false },
         message: 'Connected to Supabase endpoint.',
       });
