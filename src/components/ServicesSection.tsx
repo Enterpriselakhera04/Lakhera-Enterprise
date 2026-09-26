@@ -113,6 +113,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                       <img
                         src={service.image}
                         alt={service.title}
+                        loading="lazy"
+                        onError={(e) => {
+                          e.currentTarget.onerror = null;
+                          e.currentTarget.src = 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80';
+                        }}
                         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-108"
                         referrerPolicy="no-referrer"
                       />

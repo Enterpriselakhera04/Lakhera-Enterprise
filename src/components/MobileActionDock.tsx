@@ -19,18 +19,21 @@ export const MobileActionDock: React.FC<MobileActionDockProps> = ({
 
   return (
     <>
-      {/* Floating Ask Lakhera AI Bubble (desktop & mobile) */}
-      <div className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-40">
+      {/* Floating Ask Lakhera AI Launcher in the Center of the webpage */}
+      <div className="fixed bottom-16 sm:bottom-7 left-1/2 -translate-x-1/2 z-40 w-auto max-w-[92vw]">
         <button
           onClick={onOpenAI}
-          className="group relative flex items-center gap-2.5 px-4.5 py-3 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold text-xs rounded-full shadow-2xl shadow-amber-500/30 transition-all duration-200 cursor-pointer"
+          className="group relative flex items-center gap-3 px-5 sm:px-6 py-3 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold text-xs sm:text-sm rounded-full shadow-2xl shadow-amber-500/40 border-2 border-amber-300/60 ring-4 ring-slate-950/20 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer whitespace-nowrap"
           aria-label="Open Ask Lakhera AI Assistant"
         >
-          <div className="relative">
+          <div className="relative flex items-center justify-center">
             <Bot className="w-5 h-5 text-slate-950" />
-            <span className="animate-ping absolute -top-1 -right-1 w-2 h-2 rounded-full bg-slate-950 opacity-75" />
+            <span className="animate-ping absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-slate-950 opacity-75" />
           </div>
           <span className="font-display font-extrabold tracking-wide">Ask Lakhera AI</span>
+          <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full bg-slate-950/15 text-[10px] font-mono font-bold uppercase tracking-wider">
+            Live 24/7
+          </span>
         </button>
       </div>
 

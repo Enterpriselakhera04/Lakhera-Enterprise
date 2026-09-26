@@ -444,8 +444,10 @@ app.post('/api/quotes', async (req: Request, res: Response): Promise<void> => {
   }
 });
 
-// Explicitly serve static videos and public assets with byte-range streaming support
+// Explicitly serve static videos, images, and public assets with byte-range streaming support
 const publicDir = path.join(__dirname, 'public');
+app.use('/images', express.static(path.join(publicDir, 'images')));
+app.use('/src/assets/images', express.static(path.join(publicDir, 'images')));
 app.use('/videos', express.static(path.join(publicDir, 'videos'), {
   setHeaders: (res, filePath) => {
     if (filePath.endsWith('.mp4')) {

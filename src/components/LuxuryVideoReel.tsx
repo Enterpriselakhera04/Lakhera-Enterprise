@@ -59,7 +59,7 @@ export const LuxuryVideoReel: React.FC<LuxuryVideoReelProps> = ({
       title: 'CNC Fiber Laser Precision Cutting',
       category: 'Sub-Millimeter Architectural Fretwork',
       durationLabel: '00:18 • 4K UHD 60FPS',
-      poster: '/src/assets/images/video_laser_cutting_1790318189739.jpg',
+      poster: '/images/laser-cutting-poster.jpg',
       videoSrc: laserVideo,
       publicFallback: '/videos/laser-cutting.mp4',
       description:
@@ -76,7 +76,7 @@ export const LuxuryVideoReel: React.FC<LuxuryVideoReelProps> = ({
       title: 'Maxwell High-Torque Motorized Automation',
       category: 'Motorized Commercial & Factory Bays',
       durationLabel: '00:15 • High-Torque Automation',
-      poster: '/src/assets/images/service_rolling_shutter_1790317612834.jpg',
+      poster: '/images/shutter-automation-poster.jpg',
       videoSrc: shutterVideo,
       publicFallback: '/videos/shutter-automation.mp4',
       description:
@@ -93,7 +93,7 @@ export const LuxuryVideoReel: React.FC<LuxuryVideoReelProps> = ({
       title: 'Luxury Architectural Entrance Gates',
       category: 'Bespoke Bungalow Statement Entrances',
       durationLabel: '00:14 • Master Craftsman Arc',
-      poster: '/src/assets/images/luxury_entrance_gate_craft_1790318204227.jpg',
+      poster: '/images/luxury-gate-poster.jpg',
       videoSrc: gatesVideo,
       publicFallback: '/videos/luxury-gates.mp4',
       description:
@@ -110,7 +110,7 @@ export const LuxuryVideoReel: React.FC<LuxuryVideoReelProps> = ({
       title: 'PEB Industrial Warehouse Structures',
       category: 'Structural Heavy Steel Erection',
       durationLabel: '00:11 • Heavy Portal Fabrication',
-      poster: '/src/assets/images/service_industrial_shed_1790317645927.jpg',
+      poster: '/images/peb-shed-poster.jpg',
       videoSrc: pebVideo,
       publicFallback: '/videos/peb-fabrication.mp4',
       description:
@@ -127,7 +127,7 @@ export const LuxuryVideoReel: React.FC<LuxuryVideoReelProps> = ({
       title: 'Bhopal Advanced Manufacturing Facility',
       category: 'Facility Overview & Crane Bays',
       durationLabel: '00:20 • Shop-Floor Panorama',
-      poster: '/src/assets/images/hero_industrial_workshop_1790317598471.jpg',
+      poster: '/images/workshop-floor-poster.jpg',
       videoSrc: factoryVideo,
       publicFallback: '/videos/factory-floor.mp4',
       description:
@@ -420,6 +420,10 @@ export const LuxuryVideoReel: React.FC<LuxuryVideoReelProps> = ({
                     <img
                       src={activeChannel.poster}
                       alt={activeChannel.title}
+                      onError={(e) => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src = 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80';
+                      }}
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent flex flex-col items-center justify-center p-6 text-center">
@@ -668,6 +672,10 @@ export const LuxuryVideoReel: React.FC<LuxuryVideoReelProps> = ({
                     <img
                       src={channel.poster}
                       alt={channel.title}
+                      onError={(e) => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src = 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=400&q=80';
+                      }}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />

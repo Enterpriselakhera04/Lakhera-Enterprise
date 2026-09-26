@@ -19,7 +19,7 @@ export const SERVICES: ServiceItem[] = [
     subtitle: 'Heavy-Duty Motorized & Manual Rolling Shutters for Commercial & Industrial Bays',
     category: 'Automation & Security',
     description: 'Precision-engineered cold-rolled galvanized steel rolling shutters equipped with automated gear drives and genuine Maxwell motor assemblies. Built for commercial storefronts, distribution warehouses, showrooms, and factories requiring rapid opening cycles and anti-intrusion locking.',
-    image: '/src/assets/images/service_rolling_shutter_1790317612834.jpg',
+    image: '/images/rolling-shutters-motors.jpg',
     specifications: [
       { label: 'Slat Thickness', value: '0.8mm to 1.6mm Cold Rolled Galvanized' },
       { label: 'Guide Rail Gauge', value: 'Heavy MS Profile with Anti-Wear Bushing' },
@@ -42,7 +42,7 @@ export const SERVICES: ServiceItem[] = [
     subtitle: 'Center, Side, and Tubular Rolling Motors with Wireless RF & Safety Overrides',
     category: 'Industrial Automation',
     description: 'Authoritative distribution, integration, and retrofit of genuine Maxwell Rolling Shutter Motors. Available in center-motor configuration for balanced retail shutters, side-mount heavy hoist motors for wide factory doors, and compact tubular motors for sleek modern entries.',
-    image: '/src/assets/images/service_rolling_shutter_1790317612834.jpg',
+    image: '/images/shutter-automation-poster.jpg',
     specifications: [
       { label: 'Center Motor Capacity', value: '150 kg to 350 kg lifting rating' },
       { label: 'Side Motor Capacity', value: '300 kg to 1,500 kg industrial rating' },
@@ -65,7 +65,7 @@ export const SERVICES: ServiceItem[] = [
     subtitle: 'Galvanized Iron Architectural Door Frames - Termite-Proof, Moisture-Proof & Warp-Free',
     category: 'Building Products',
     description: 'Precision CNC roll-formed Dewas Galvanized Iron (GI) door chaukhat frames engineered to replace conventional timber frames. Manufactured using prime Tata / Jindal grade galvanized sheets with seamless mitred joints, factory hinge mortises, and superior primer adhesion.',
-    image: '/src/assets/images/service_dewas_chaukhat_1790317635206.jpg',
+    image: '/images/gi-chaukhat-frames.jpg',
     specifications: [
       { label: 'Sheet Thickness', value: '1.2mm (18 Gauge) and 1.6mm (16 Gauge)' },
       { label: 'Profile Options', value: 'Single Rebate (100x60mm) & Double Rebate (125x60mm)' },
@@ -88,7 +88,7 @@ export const SERVICES: ServiceItem[] = [
     subtitle: 'Architectural Statement Entrance Gates with High-Precision Fiber Laser Fretwork',
     category: 'Architectural Metalwork',
     description: 'Luxury entrance gates combining high-precision fiber laser cutting with heavy structural box pipe framing. Custom geometric, Islamic, royal jali, and minimalist parametric designs cut from heavy-gauge sheet steel, finished with multi-stage polyurethane powder coating and optional SS 304 or brass accents.',
-    image: '/src/assets/images/service_luxury_gate_1790317624756.jpg',
+    image: '/images/luxury-cnc-gates.jpg',
     specifications: [
       { label: 'Sheet Cutting Gauge', value: '3mm to 8mm Solid Mild Steel / SS Plate' },
       { label: 'Main Framing', value: '75x75mm to 100x50mm Heavy Gauge Box Sections' },
@@ -111,7 +111,7 @@ export const SERVICES: ServiceItem[] = [
     subtitle: 'Structural Safety Doors, Balcony Railings & Modern Architectural Security Grills',
     category: 'Security & Fabrication',
     description: 'Heavy-duty safety pipe doors and architectural window grills designed to deliver ironclad security without sacrificing aesthetic finesse. Fabricated using uniform hollow steel sections (square & rectangular pipes) with continuous argon/MIG weldments, clean grind-finishes, and heavy latch boxes.',
-    image: '/src/assets/images/hero_industrial_workshop_1790317598471.jpg',
+    image: '/images/pipe-doors-grills.jpg',
     specifications: [
       { label: 'Pipe Specifications', value: '25x25mm, 40x20mm, 50x25mm Heavy Gauge' },
       { label: 'Spacing Discipline', value: 'Engineered safe pitch (maximum 4-inch gaps)' },
@@ -134,7 +134,7 @@ export const SERVICES: ServiceItem[] = [
     subtitle: 'Structural Mild Steel Frameworks & Premium Stainless Steel (Grade 304/316) Architectural Fixtures',
     category: 'Heavy & Precision Metalwork',
     description: 'End-to-end metal fabrication solutions spanning structural mild steel (I-beams, channels, angles) to mirror and satin-finished Stainless Steel Grade 304 and marine-grade 316. Includes architectural staircases, glass-mounting balustrades, mezzanine platforms, and industrial machinery safety enclosures.',
-    image: '/src/assets/images/hero_industrial_workshop_1790317598471.jpg',
+    image: '/images/ms-ss-fabrication.jpg',
     specifications: [
       { label: 'SS Grades Handled', value: 'AISI 304 (General Architectural) & AISI 316 (Chemical/Coastal)' },
       { label: 'Finishing Options', value: 'Satin Brush (#4), Mirror Polish (#8), Matte Sandblasted' },
@@ -157,7 +157,7 @@ export const SERVICES: ServiceItem[] = [
     subtitle: 'Pre-Engineered Building (PEB) Warehouse & Factory Roof Structures with Heavy Trusses',
     category: 'Industrial Infrastructure',
     description: 'Turnkey fabrication and erection of Pre-Engineered Building (PEB) industrial sheds, factory workshops, and logistics warehouses. Fabricated with built-up structural portal frames, heavy tubular trusses, hot-rolled I-sections, Galvalume corrugated roofing sheets, and integrated rainwater drainage.',
-    image: '/src/assets/images/service_industrial_shed_1790317645927.jpg',
+    image: '/images/industrial-sheds-peb.jpg',
     specifications: [
       { label: 'Clear Span Capacity', value: '15 meters to 45+ meters column-free span' },
       { label: 'Structural Members', value: 'Built-up I-Sections, Tubular Trusses, C/Z Purlins' },
@@ -180,7 +180,7 @@ export const SERVICES: ServiceItem[] = [
     subtitle: 'Bespoke Heavy-Duty Metal Fabrication Built Exactly to Engineering Blueprints',
     category: 'Custom Engineering',
     description: 'Custom architectural and mechanical fabrication service for clients with specialized architectural CAD drawings, unique dimensions, or heavy industrial specifications. Our workshop handles cutting, bending, heavy rolling, assembly welding, and surface treatment for custom projects.',
-    image: '/src/assets/images/hero_industrial_workshop_1790317598471.jpg',
+    image: '/images/workshop-floor-poster.jpg',
     specifications: [
       { label: 'Drawing Formats', value: 'AutoCAD .DWG, .DXF, SolidWorks, PDF Blueprints, On-Site Sketches' },
       { label: 'Cutting Equipment', value: 'High-Power CNC Fiber Laser & Heavy Hydraulic Shears' },

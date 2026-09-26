@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Phone, MessageSquare, Bot, ShieldCheck, Cpu, Ruler, Sparkles, Award } from 'lucide-react';
+import { ArrowRight, Phone, MessageSquare, Bot, ShieldCheck, Cpu, Ruler, Sparkles, Award, Scan, Activity, Compass, Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import { WORKSHOP_INFO } from '../data/servicesData';
 import { useTheme } from '../context/ThemeContext';
+import gatesVideo from '../assets/videos/luxury-gates.mp4';
 
 interface HeroProps {
   onOpenConsultation: () => void;
@@ -17,6 +18,26 @@ export const Hero: React.FC<HeroProps> = ({
 }) => {
   const { theme } = useTheme();
   const isLight = theme === 'light';
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (isPlaying) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      videoRef.current.play().catch(() => {});
+      setIsPlaying(true);
+    }
+  };
+
+  const toggleMute = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = !isMuted;
+    setIsMuted(!isMuted);
+  };
 
   return (
     <section
@@ -183,18 +204,86 @@ export const Hero: React.FC<HeroProps> = ({
             className="lg:col-span-5 relative"
           >
             <div
-              className={`relative rounded-3xl overflow-hidden border shadow-2xl transition-all ${
+              className={`relative rounded-3xl overflow-hidden border shadow-2xl transition-all group ${
                 isLight
                   ? 'border-slate-200/90 bg-white shadow-xl shadow-slate-200/70'
                   : 'border-amber-500/25 bg-slate-900 luxury-glow'
               }`}
             >
-              <img
-                src="/src/assets/images/hero_industrial_workshop_1790317598471.jpg"
-                alt="Lakhera Enterprise precision industrial metal fabrication and automation facility"
-                className="w-full h-[380px] sm:h-[440px] object-cover transition-transform duration-700 hover:scale-105"
-                referrerPolicy="no-referrer"
+              {/* High-Definition Autoplaying Looping Video: Craftsman Doing Welding */}
+              <video
+                ref={videoRef}
+                src={gatesVideo}
+                poster="/images/luxury-gate-poster.jpg"
+                autoPlay
+                loop
+                muted={isMuted}
+                playsInline
+                preload="metadata"
+                className="w-full h-[380px] sm:h-[440px] object-cover transition-transform duration-700 group-hover:scale-105"
               />
+
+              {/* Engineering Blue-Laser Scanner Sweep Motion Animation */}
+              <motion.div
+                className="absolute inset-x-0 h-28 pointer-events-none z-20"
+                style={{
+                  background: 'linear-gradient(to bottom, transparent 0%, rgba(245, 158, 11, 0.12) 40%, rgba(251, 191, 36, 0.45) 85%, rgba(255, 255, 255, 0.95) 98%, transparent 100%)',
+                }}
+                animate={{
+                  top: ['-25%', '85%', '-25%'],
+                }}
+                transition={{
+                  duration: 4.5,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+              >
+                {/* Intense glowing laser beam line */}
+                <div className="absolute bottom-1 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-amber-300 to-transparent shadow-[0_0_18px_#f59e0b,0_0_30px_#fbbf24]" />
+                {/* Laser scan particle points */}
+                <div className="absolute bottom-0 left-1/4 w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_#fff]" />
+                <div className="absolute bottom-0 left-2/4 w-2 h-2 rounded-full bg-amber-200 shadow-[0_0_10px_#fbbf24]" />
+                <div className="absolute bottom-0 left-3/4 w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_#fff]" />
+              </motion.div>
+
+              {/* Precision CAD / LiDAR Architectural Grid Overlay */}
+              <div className="absolute inset-0 pointer-events-none z-10 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:28px_28px]" />
+
+              {/* Top HUD Telemetry Banner */}
+              <div className="absolute top-4 inset-x-4 z-20 flex items-center justify-between pointer-events-none">
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-950/80 backdrop-blur-md border border-amber-500/40 text-amber-400 text-[11px] font-mono font-semibold tracking-wider shadow-lg">
+                  <Scan className="w-3.5 h-3.5 animate-spin" style={{ animationDuration: '6s' }} />
+                  <span>WELDING SCAN ACTIVE</span>
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse ml-0.5" />
+                </div>
+                <div className="flex items-center gap-2 pointer-events-auto">
+                  <button
+                    onClick={togglePlay}
+                    className="p-1.5 rounded-full bg-slate-950/70 hover:bg-slate-900 border border-slate-700/80 text-amber-400 hover:text-amber-300 transition-colors cursor-pointer"
+                    aria-label={isPlaying ? 'Pause video' : 'Play video'}
+                  >
+                    {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
+                  </button>
+                  <button
+                    onClick={toggleMute}
+                    className="p-1.5 rounded-full bg-slate-950/70 hover:bg-slate-900 border border-slate-700/80 text-slate-300 hover:text-white transition-colors cursor-pointer"
+                    aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+                  >
+                    {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
+                  </button>
+                  <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/70 backdrop-blur-md border border-slate-700/80 text-slate-300 text-[10px] font-mono tracking-wide">
+                    <Activity className="w-3 h-3 text-cyan-400" />
+                    <span>MIG / TIG ARC</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Viewfinder Corner Reticles */}
+              <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-amber-400/70 pointer-events-none z-15" />
+              <div className="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-amber-400/70 pointer-events-none z-15" />
+              <div className="absolute bottom-24 left-4 w-6 h-6 border-b-2 border-l-2 border-amber-400/70 pointer-events-none z-15" />
+              <div className="absolute bottom-24 right-4 w-6 h-6 border-b-2 border-r-2 border-amber-400/70 pointer-events-none z-15" />
+
               {/* Scrim */}
               <div
                 className={`absolute inset-0 ${
@@ -205,9 +294,10 @@ export const Hero: React.FC<HeroProps> = ({
               />
 
               {/* In-visual trust banner at bottom */}
-              <div className="absolute bottom-0 inset-x-0 p-6 space-y-2 bg-gradient-to-t from-slate-950/95 via-slate-950/80 to-transparent">
+              <div className="absolute bottom-0 inset-x-0 p-6 space-y-2 bg-gradient-to-t from-slate-950/95 via-slate-950/80 to-transparent z-20">
                 <div className="flex items-center justify-between text-xs text-slate-300">
-                  <span className="font-bold text-white tracking-wide">
+                  <span className="font-bold text-white tracking-wide flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping inline-block" />
                     Workshop & Engineering Hub
                   </span>
                   <span className="text-amber-400 font-mono font-semibold">

@@ -17,6 +17,7 @@ import { Footer } from './components/Footer';
 import { MobileActionDock } from './components/MobileActionDock';
 import { QuoteModal } from './components/QuoteModal';
 import { AskLakheraAI } from './components/AskLakheraAI';
+import { CenterAISection } from './components/CenterAISection';
 import { SupabaseSyncModal } from './components/SupabaseSyncModal';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { X, Calendar } from 'lucide-react';
@@ -90,6 +91,13 @@ function MainApp() {
           onSelectServiceForConsultation={(serviceId) => handleOpenConsultation(serviceId)}
           onSelectServiceForQuote={(serviceId) => handleOpenQuote(serviceId)}
           onSelectServiceForAI={(serviceTitle) => handleOpenAI(serviceTitle)}
+        />
+
+        {/* Center of Webpage: Dedicated AI Engineering Chatbot Hub */}
+        <CenterAISection
+          onOpenAI={(topic) => handleOpenAI(topic)}
+          onOpenConsultation={() => handleOpenConsultation()}
+          onOpenQuote={() => handleOpenQuote()}
         />
 
         {/* Live Interactive Maxwell Shutter Automation Simulator */}

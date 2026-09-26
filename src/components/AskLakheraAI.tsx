@@ -272,9 +272,9 @@ export const AskLakheraAI: React.FC<AskLakheraAIProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:p-4 bg-slate-950/75 backdrop-blur-md">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md">
       <div
-        className={`relative w-full sm:max-w-2xl h-[92vh] sm:h-[660px] rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden border ${
+        className={`relative w-full max-w-2xl h-[88vh] sm:h-[680px] rounded-3xl shadow-2xl flex flex-col overflow-hidden border ${
           isLight
             ? 'bg-white border-slate-200 text-slate-900 shadow-amber-900/10'
             : 'bg-slate-900 border-slate-800 text-white shadow-black/80'
